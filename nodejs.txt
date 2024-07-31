@@ -1,0 +1,78 @@
+Node js 
+        ----> nodejs.org (bajar el instalador/documentacion oficial)
+        ----> Entorno de ejecucion de js fuera del navegador
+        ----> Utilizado principalmente para apps web, juegos y chat (tiempo real)
+        ----> Asincrono: independencia de tareas (en paralelo t1, t2, t3)
+              Sincronico: tareas en forma secuencial (tarea1 ----> tarea2 ----> tarea3)
+        ----> Tiene su propio gestor de paquetes npm (Node Package Manager)
+
+NPM     ----> Permite
+                - compartir codigo
+                - usar librerias, modulos, api, paquetes de otros programadores
+        ----> Gestiona los paquetes y sus actualizaciones
+        ----> Gestiona las dependencias de los proyectos
+                            ---> todos los modulos que mi proyecto utilice de terceros
+        ----> npmjs com  (documentacion oficial de todos los paquetes)
+
+--------------------------------------------------------------
+
+node --version (version del node)
+node (para ejecutar)
+
+console.log("hola mundo")
+hola mundo
+
+> const saludar = (nombre) => console.log(`hola ${nombre}`)
+> saludar('Nachitox739')
+
+hola Nachitox739
+
+To exit, press Ctrl+C again or Ctrl+D or type .exit
+
+--------------------------------------------------------------
+
+Package.json ----> desc proycto (nombre, autor, version, etc) y los dependientes de produccion y desarrollo
+                        dependencias de produccion: necesarias para la ejecucion de la aplicacion
+                        dependencias de desarrollo: se utilizan solo durante la etapa de creacion de la aplicacion
+
+Package-lock.json ----> las versiones de las dependencias correctas para la ejecucion de la aplicacion
+
+node-modules ----> npm install
+                   carpetas de las dependencias necesarias
+                   no se guarda ni se sube a github
+
+peticiones metodos (method) ----> get ---> pido info al server (mostrar produc)
+                                  post ---> envio info para que el servidor procese (guardar produc)
+                                  put/patch ---> metodos para analizar info existente (actualizar precio de un produc)
+                                  delete ---> pido al servidor que elimine datos (eliminar produc)
+
+sintaxis de peticiones :3
+
+app.method ('endpoint', callback) ----> funcion que toma la request, la procesa y envia el response
+                                        ---> ruta objetivo(url)
+
+-------------------------------------iniciar server-------------------------------
+const express = require ('express')
+const app = express();
+const port = 3000
+
+app.listen(3000, ()=>{
+    console.log(`servidor corriendo en el puerto ${port}`)
+}
+)
+----------------------------------------------------------------------------------
+
+-------------------------------------iniciar server con msj get-------------------
+const express = require ('express')
+const app = express();
+const port = 3000
+app.get('/', (req, res)=>{
+    res.send('he recibido una peticion get, alguien solicita datos')
+}
+)
+app.listen(3000, ()=>{
+    console.log(`servidor corriendo en el puerto ${port}`)
+}
+)
+----------------------------------------------------------------------------------
+
